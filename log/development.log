@@ -234,3 +234,20 @@ Started GET "/posts/new" for 73.183.195.24 at 2018-04-07 00:32:28 +0000
 Processing by PostsController#new as HTML
   Rendered posts/new.html.erb within layouts/application (0.5ms)
 Completed 200 OK in 21ms (Views: 15.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/posts" for 73.183.195.24 at 2018-04-07 00:32:34 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9yUGAQf+3hcFRrjJYjfMR1p9d652IX+RUOGuZ2YwLH0ZFPN7NXKQUniTgkSS/R01yZOtmdisw5duIX8vv4dm2g==", "title"=>"foo3", "description"=>"bar", "commit"=>"Submit Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "foo3"], ["description", "bar"], ["created_at", "2018-04-07 00:32:34.046921"], ["updated_at", "2018-04-07 00:32:34.046921"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://67.205.152.27:34278/posts/6
+Completed 302 Found in 7ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/posts/6" for 73.183.195.24 at 2018-04-07 00:32:34 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
